@@ -88,7 +88,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
         </div>
       </main>
       <footer className="p-6 text-center text-white/80 sm:p-12">
-        <small>@PPK</small>
+        <small>@PAB-PPK-HAB</small>
       </footer>
     </>
   );
