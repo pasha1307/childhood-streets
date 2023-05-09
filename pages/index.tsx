@@ -57,7 +57,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
               Streets 40 years after ...
             </h1>
             <p className="max-w-[40ch] text-white/75 sm:max-w-[32ch]">
-              New Photo Gallery App
+              Tuy Kuzya Mian Kar, Dona Kar ..
             </p>
           </div>
           {images.map(({ id, public_id, format, blurDataUrl }) => (
