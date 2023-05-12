@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useRef } from "react";
-import Bridge from "../components/Icons/Bridge";
 import Station from "../components/Icons/Station";
 import Logo from "../components/Icons/Logo";
 import Modal from "../components/Modal";
@@ -57,7 +56,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
               Streets 40 years after ...
             </h1>
             <p className="max-w-[40ch] text-white/75 sm:max-w-[32ch]">
-              Tuy Kuzya Mian Kar, Dona Kar ..
+              Tuy Kuzya..., Mian Kar, Dona Kar ..
             </p>
           </div>
           {images.map(({ id, public_id, format, blurDataUrl }) => (
