@@ -30,7 +30,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
   return (
     <>
       <Head>
-        <title>Childood Photos 40 years later</title>
+        <title>Childhood Photos 40 years later</title>
         <meta property="og:image" content="Sykyvkar srreet views" />
         <meta name="twitter:image" content="Peter Banasyak" />
       </Head>
