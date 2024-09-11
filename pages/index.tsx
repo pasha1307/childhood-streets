@@ -55,7 +55,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
               current views of neighborhoods and countryside ...
             </h1>
             <p className="max-w-[40ch] text-white/75 sm:max-w-[32ch]">
-              Bur Ryt, Dona Yortyas, ..Tuy Kuzya..., Mian Kar, Dona Kar ...
+              Bur Ryt, Dona Yortyas, .., Mian Kar, Dona Kar ...Lebalei Samolyotyasen!
             </p>
           </div>
           {images.map(({ id, public_id, format, blurDataUrl }) => (
