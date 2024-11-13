@@ -17,7 +17,7 @@ class MyDocument extends Document {
           />
           <meta property="og:title" content="Childhood Sites Years After" />
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Childhood Sites" />
+          <meta name="twitter:title" content="Childhood Sites Years After" />
           <meta
             name="twitter:description"
             content="Ongoing photography of sites around Syktyvkar."
