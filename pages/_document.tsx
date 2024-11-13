@@ -15,7 +15,7 @@ class MyDocument extends Document {
             property="og:description"
             content="Pictures from Komi old and current sites in progress."
           />
-          <meta property="og:title" content="Childhood Sites" />
+          <meta property="og:title" content="Childhood Sites Years After" />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content="Childhood Sites" />
           <meta
