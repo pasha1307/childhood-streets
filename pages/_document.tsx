@@ -8,7 +8,7 @@ class MyDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <meta
             name="description"
-            content="See photos of sites in and around former hometown Syktyvkar"
+            content="See photos of sites in and out of former hometown Syktyvkar"
           />
           <meta property="og:site_name" content="nextjsconf-pics.vercel.app" />
           <meta
