@@ -29,8 +29,8 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
   return (
     <>
       <Head>
-        <title>Childhood Sites 40+ Years Later</title>
-        <meta property="og:image" content="Townof Sysktyvkar and Sites" />
+        <title>Memories and Realities</title>
+        <meta property="og:image" content="Town of Sysktyvkar and Sites" />
         <meta name="twitter:image" content="Peter Banasyak" />
       </Head>
       <main className="mx-auto max-w-[1960px] p-4">
