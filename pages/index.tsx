@@ -29,7 +29,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
   return (
     <>
       <Head>
-        <title>Memories and Realities</title>
+        <title>Memories and Present</title>
         <meta property="og:image" content="Town of Sysktyvkar and Surrounding" />
         <meta name="twitter:image" content="Peter Banasyak" />
       </Head>
