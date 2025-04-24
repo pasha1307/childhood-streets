@@ -30,7 +30,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
     <>
       <Head>
         <title>Recent and Distant Memories</title>
-        <meta property="og:image" content="Town of Sysktyvkar and Sysktyvakr Area" />
+        <meta property="og:image" content="Views of Sysktyvkar Town and Sysktyvakr Area" />
         <meta name="twitter:image" content="Peter Banasyak" />
       </Head>
       <main className="mx-auto max-w-[1960px] p-4">
