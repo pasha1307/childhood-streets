@@ -20,7 +20,7 @@ class MyDocument extends Document {
           <meta name="twitter:title" content="Childhood Sites Years After" />
           <meta
             name="twitter:description"
-            content="Ongoing photography of sites around Syktyvkar."
+            content="In progress photography of sites around Syktyvkar."
           />
         </Head>
         <body className="bg-black antialiased">
