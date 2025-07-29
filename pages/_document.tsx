@@ -10,10 +10,11 @@ class MyDocument extends Document {
             name="description"
             content="See photos of sites in and out of former hometown Syktyvkar"
           />
+
           <meta property="og:site_name" content="nextjsconf-pics.vercel.app" />
           <meta
             property="og:description"
-            content="Pictures from Komi old and current sites in progress."
+            content="Updated pictures from Komi old and current sites in progress."
           />
           <meta property="og:title" content="Childhood Sites Today" />
           <meta name="twitter:card" content="summary_site_image" />
