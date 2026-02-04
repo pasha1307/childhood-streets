@@ -73,11 +73,10 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
 						</div>
 						<div className="relative z-10 flex h-full w-full flex-col items-center justify-end pb-4">
 							<h1 className="mb-4 mt-8 text-base font-bold uppercase tracking-widest">
-								Now and Then (half a century earlier)views of neighborhoods and
-								countryside ...
+								Now and Then: Views and Memories ...
 							</h1>
 							<p className="max-w-[40ch] text-white/75 sm:max-w-[32ch]">
-								<span className="text-white/75">Bur Ryt, Dona Yortyas!</span>,
+								{/* <span className="text-white/75">Bur Ryt, Dona Yortyas!</span>,
 								<span className="text-white/75">
 									.., Micha Kar, Dona Kar, Mian Kar!
 								</span>
@@ -85,7 +84,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
 								<span className="text-white/75">
 									...Lebalei...Samolyotyasen!
 								</span>
-								<span className="text-white/75">Tuy Tuzya Dreamland</span>
+								<span className="text-white/75">Tuy Tuzya Dreamland</span> */}
 							</p>
 
 							<div className="mt-8 flex justify-center gap-8 text-sm font-bold uppercase tracking-widest text-white/80">
