@@ -15,7 +15,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
 	const { photoId } = router.query;
 	const [lastViewedPhoto, setLastViewedPhoto] = useLastViewedPhoto();
 	const [currentTab, setCurrentTab] = useState<"childhood" | "old_photos">(
-		"childhood",
+		"childhood"
 	);
 
 	const lastViewedPhotoRef = useRef<HTMLAnchorElement>(null);
@@ -40,14 +40,17 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
 	}, [photoId]);
 
 	const displayedImages = images.filter((img) =>
-		currentTab === "childhood" ? img.id < 1000 : img.id >= 1000,
+		currentTab === "childhood" ? img.id < 1000 : img.id >= 1000
 	);
 
 	return (
 		<>
 			<Head>
 				<title>Close and Distant Memories</title>
-				<meta property="og:image" content="Syktyvkar City and Around" />
+				<meta
+					property="og:image"
+					content="Now and the Then Syktyvkar City and Around"
+				/>
 				<meta name="twitter:image" content="Peter Banasyak" />
 			</Head>
 			<main className="mx-auto max-w-[1960px] p-4">
@@ -70,12 +73,21 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
 						</div>
 						<div className="relative z-10 flex h-full w-full flex-col items-center justify-end pb-4">
 							<h1 className="mb-4 mt-8 text-base font-bold uppercase tracking-widest">
-								current views of neighborhoods and countryside ...
+								Now and Then (half a century earlier)views of neighborhoods and
+								countryside ...
 							</h1>
 							<p className="max-w-[40ch] text-white/75 sm:max-w-[32ch]">
-								Bur Ryt, Dona Yortyas, .., Mian Kar, Dona Kar ...Lebalei
-								Samolyotyasen!
+								<span className="text-white/75">Bur Ryt, Dona Yortyas!</span>,
+								<span className="text-white/75">
+									.., Micha Kar, Dona Kar, Mian Kar!
+								</span>
+								,
+								<span className="text-white/75">
+									...Lebalei...Samolyotyasen!
+								</span>
+								<span className="text-white/75">Tuy Tuzya Dreamland</span>
 							</p>
+
 							<div className="mt-8 flex justify-center gap-8 text-sm font-bold uppercase tracking-widest text-white/80">
 								<button
 									onClick={() => setCurrentTab("childhood")}
@@ -125,7 +137,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
                   25vw"
 								/>
 							</Link>
-						),
+						)
 					)}
 				</div>
 			</main>
