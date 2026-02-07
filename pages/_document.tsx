@@ -8,12 +8,12 @@ class MyDocument extends Document {
 					<link rel="icon" href="/favicon.ico" />
 					<meta
 						name="description"
-						content="See photos of NOW and THEN sites of hometown Syktyvkar"
+						content="See photos of NOW and THEN sites of home town Syktyvkar"
 					/>
 
 					<meta
 						property="og:site_name"
-						content="Photo Gallery Sites In Syktyvkar"
+						content="Fifty Years After High School No 12 In Syktyvkar"
 					/>
 					<meta
 						property="og:description"
