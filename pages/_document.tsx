@@ -17,7 +17,7 @@ class MyDocument extends Document {
 					/>
 					<meta
 						property="og:description"
-						content="Updated pictures from Komi old and current sites in progress."
+						content="Updated pictures from Komi old and current sites. Project in progress."
 					/>
 					<meta
 						property="og:title"
@@ -26,11 +26,11 @@ class MyDocument extends Document {
 					<meta name="twitter:card" content="summary_site_image" />
 					<meta
 						name="twitter:title"
-						content="Syktyvar Sites Now And 50 Years Before"
+						content="Sites Now And School Photos 50 Years Ago"
 					/>
 					<meta
 						name="twitter:description"
-						content="IFifty Years Of Graduation From High School No 12 In Syktyvkar."
+						content="Fifty Years After Graduation. Views of Syktyvkar Now And Then. Project in progress."
 					/>
 				</Head>
 				<body className="bg-black antialiased">
