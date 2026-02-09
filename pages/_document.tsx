@@ -24,7 +24,10 @@ class MyDocument extends Document {
 						content="Fifty Years Of Graduation From High School No 12 In Syktyvkar"
 					/>
 					<meta name="twitter:card" content="summary_site_image" />
-					<meta name="twitter:title" content="Childhood Sites Years After" />
+					<meta
+						name="twitter:title"
+						content="Syktyvar Sites Now And Years Before"
+					/>
 					<meta
 						name="twitter:description"
 						content="IFifty Years Of Graduation From High School No 12 In Syktyvkar."
