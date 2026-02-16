@@ -30,7 +30,7 @@ class MyDocument extends Document {
 					/>
 					<meta
 						name="twitter:description"
-						content="Fifty Years After Graduation. Views of Syktyvkar Now And Then. Project in progress."
+						content="Fifty Years After Graduation. Views of Syktyvkar and Around by Graduates. Project in progress."
 					/>
 				</Head>
 				<body className="bg-black antialiased">
