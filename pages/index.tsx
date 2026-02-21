@@ -51,7 +51,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
 					property="og:image"
 					content="Now and the Then City of Syktyvkar and Around"
 				/>
-				<meta name="twitter:image" content="Peter Banasyak" />
+				<meta name="twitter:image" content="Former Classmates" />
 			</Head>
 			<main className="mx-auto max-w-[1960px] p-4">
 				{photoId && (
