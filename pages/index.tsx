@@ -15,7 +15,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
 	const { photoId } = router.query;
 	const [lastViewedPhoto, setLastViewedPhoto] = useLastViewedPhoto();
 	const [currentTab, setCurrentTab] = useState<"childhood" | "old_photos">(
-		"childhood"
+		"childhood",
 	);
 
 	const lastViewedPhotoRef = useRef<HTMLAnchorElement>(null);
@@ -40,7 +40,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
 	}, [photoId]);
 
 	const displayedImages = images.filter((img) =>
-		currentTab === "childhood" ? img.id < 1000 : img.id >= 1000
+		currentTab === "childhood" ? img.id < 1000 : img.id >= 1000,
 	);
 
 	return (
@@ -49,7 +49,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
 				<title>Close and Distant Memories</title>
 				<meta
 					property="og:image"
-					content="Now and the Then Syktyvkar City and Around"
+					content="Now and the Then City of Syktyvkar and Around"
 				/>
 				<meta name="twitter:image" content="Peter Banasyak" />
 			</Head>
@@ -136,7 +136,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
                   25vw"
 								/>
 							</Link>
-						)
+						),
 					)}
 				</div>
 			</main>
