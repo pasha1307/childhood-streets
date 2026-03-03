@@ -17,7 +17,7 @@ class MyDocument extends Document {
 					/>
 					<meta
 						property="og:description"
-						content="Updated pictures from Komi old and current sites. Project in progress."
+						content="Updated pictures from former classmates of 1976 graduation. Project in progress."
 					/>
 					<meta
 						property="og:title"
