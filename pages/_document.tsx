@@ -17,7 +17,7 @@ class MyDocument extends Document {
 					/>
 					<meta
 						property="og:description"
-						content="Updated pictures from the former classmates of 1976 graduation."
+						content="Updated photos from the former classmates of 1976 graduation."
 					/>
 					<meta
 						property="og:title"
