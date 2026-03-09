@@ -21,7 +21,7 @@ class MyDocument extends Document {
 					/>
 					<meta
 						property="og:title"
-						content="Fifty Years After Graduation From High School No 12 In Syktyvkar"
+						content="Fifty Years After - Syktyvkar High School No12 Graduates "
 					/>
 					<meta name="twitter:card" content="summary_site_image" />
 					<meta
