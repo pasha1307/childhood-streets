@@ -26,7 +26,7 @@ class MyDocument extends Document {
 					<meta name="twitter:card" content="summary_site_image" />
 					<meta
 						name="twitter:title"
-						content="Sites Now And Then - School Photos 50 Years Ago"
+						content="Sites Now And Then - School Photos 50 Years Distance"
 					/>
 					<meta
 						name="twitter:description"
