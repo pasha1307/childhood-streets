@@ -47,7 +47,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
 		<>
 			<Head>
 				<title>
-					Now and Then: View of Sysktyvkar and School by Classmates{" "}
+					Now and Then: View of Sysktyvkar and School Events by Classmates{" "}
 				</title>
 				<meta
 					property="og:image"
