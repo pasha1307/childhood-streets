@@ -8,10 +8,11 @@ import {
 } from "@heroicons/react/24/outline";
 import { AnimatePresence, motion, MotionConfig } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import { variants } from "../utils/animationVariants";
 import downloadPhoto from "../utils/downloadPhoto";
+import { range } from "../utils/range";
 import type { ImageProps, SharedModalProps } from "../utils/types";
 import Twitter from "./Icons/Twitter";
 
@@ -25,69 +26,24 @@ export default function SharedModal({
 	direction,
 }: SharedModalProps) {
 	const [loaded, setLoaded] = useState(false);
-	const [failedImageIds, setFailedImageIds] = useState<number[]>([]);
 
-	let currentImage = images ? images[index] : currentPhoto;
-	const visibleImages =
-		images?.filter((image) => !failedImageIds.includes(image.id)) ?? [];
-	const currentVisibleIndex = currentImage
-		? visibleImages.findIndex((image) => image.id === currentImage.id)
-		: -1;
-
-	let filteredImages =
-		currentVisibleIndex >= 0
-			? visibleImages.slice(
-					Math.max(0, currentVisibleIndex - 15),
-					currentVisibleIndex + 15,
-				)
-			: [];
+	let filteredImages = images?.slice(Math.max(0, index - 15), index + 15);
 
 	const handlers = useSwipeable({
 		onSwipedLeft: () => {
-			if (currentVisibleIndex >= 0 && currentVisibleIndex + 1 < visibleImages.length) {
-				changePhotoId(visibleImages[currentVisibleIndex + 1].id);
+			if (index < images?.length - 1) {
+				changePhotoId(images[index + 1].id);
 			}
 		},
 		onSwipedRight: () => {
-			if (currentVisibleIndex > 0) {
-				changePhotoId(visibleImages[currentVisibleIndex - 1].id);
+			if (index > 0) {
+				changePhotoId(images[index - 1].id);
 			}
 		},
 		trackMouse: true,
 	});
 
-	useEffect(() => {
-		setLoaded(false);
-	}, [index, currentImage?.id]);
-
-	useEffect(() => {
-		if (!currentImage || !failedImageIds.includes(currentImage.id)) {
-			return;
-		}
-
-		if (!images) {
-			closeModal();
-			return;
-		}
-
-		const fallbackImage = visibleImages.find((image) => image.id !== currentImage.id);
-		if (fallbackImage) {
-			changePhotoId(fallbackImage.id);
-			return;
-		}
-
-		closeModal();
-	}, [
-		changePhotoId,
-		closeModal,
-		currentImage,
-		failedImageIds,
-		visibleImages,
-	]);
-
-	if (!currentImage || failedImageIds.includes(currentImage.id)) {
-		return null;
-	}
+	let currentImage = images ? images[index] : currentPhoto;
 
 	return (
 		<MotionConfig
@@ -124,13 +80,6 @@ export default function SharedModal({
 									priority
 									alt="Cloudinary image"
 									onLoadingComplete={() => setLoaded(true)}
-									onError={() =>
-										setFailedImageIds((currentIds) =>
-											currentIds.includes(currentImage.id)
-												? currentIds
-												: [...currentIds, currentImage.id],
-										)
-									}
 								/>
 							</motion.div>
 						</AnimatePresence>
@@ -144,20 +93,20 @@ export default function SharedModal({
 						<div className="relative aspect-[3/2] max-h-full w-full">
 							{navigation && (
 								<>
-									{currentVisibleIndex > 0 && (
+									{index > 0 && (
 										<button
 											className="absolute left-3 top-[calc(50%-16px)] rounded-full bg-black/50 p-3 text-white/75 backdrop-blur-lg transition hover:bg-black/75 hover:text-white focus:outline-none"
 											style={{ transform: "translate3d(0, 0, 0)" }}
-											onClick={() => changePhotoId(visibleImages[currentVisibleIndex - 1].id)}
+											onClick={() => changePhotoId(images[index - 1].id)}
 										>
 											<ChevronLeftIcon className="h-6 w-6" />
 										</button>
 									)}
-									{currentVisibleIndex + 1 < visibleImages.length && (
+									{index + 1 < images.length && (
 										<button
 											className="absolute right-3 top-[calc(50%-16px)] rounded-full bg-black/50 p-3 text-white/75 backdrop-blur-lg transition hover:bg-black/75 hover:text-white focus:outline-none"
 											style={{ transform: "translate3d(0, 0, 0)" }}
-											onClick={() => changePhotoId(visibleImages[currentVisibleIndex + 1].id)}
+											onClick={() => changePhotoId(images[index + 1].id)}
 										>
 											<ChevronRightIcon className="h-6 w-6" />
 										</button>
@@ -225,12 +174,12 @@ export default function SharedModal({
 										<motion.button
 											initial={{
 												width: "0%",
-												x: `${Math.max((currentVisibleIndex - 1) * -100, 15 * -100)}%`,
+												x: `${Math.max((index - 1) * -100, 15 * -100)}%`,
 											}}
 											animate={{
 												scale: id === currentImage?.id ? 1.25 : 1,
 												width: "100%",
-												x: `${Math.max(currentVisibleIndex * -100, 15 * -100)}%`,
+												x: `${Math.max(index * -100, 15 * -100)}%`,
 											}}
 											exit={{ width: "0%" }}
 											onClick={() => changePhotoId(id)}
@@ -239,8 +188,8 @@ export default function SharedModal({
 												id === currentImage?.id
 													? "z-20 rounded-md shadow shadow-black/50"
 													: "z-10"
-											} ${id === visibleImages[0]?.id ? "rounded-l-md" : ""} ${
-												id === visibleImages[visibleImages.length - 1]?.id
+											} ${id === images[0].id ? "rounded-l-md" : ""} ${
+												id === images[images.length - 1].id
 													? "rounded-r-md"
 													: ""
 											} relative inline-block w-full shrink-0 transform-gpu overflow-hidden focus:outline-none`}
@@ -255,13 +204,6 @@ export default function SharedModal({
 														: "brightness-50 contrast-125 hover:brightness-75"
 												} h-full transform object-cover transition`}
 												src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_180/${public_id}.${format}`}
-												onError={() =>
-													setFailedImageIds((currentIds) =>
-														currentIds.includes(id)
-															? currentIds
-															: [...currentIds, id],
-													)
-												}
 											/>
 										</motion.button>
 									))}

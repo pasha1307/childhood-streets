@@ -1,4 +1,4 @@
-import type { GetServerSideProps, NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Carousel from "../../components/Carousel";
@@ -28,18 +28,12 @@ const Home: NextPage = ({ currentPhoto }: { currentPhoto: ImageProps }) => {
 
 export default Home;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
 	const images = await getImages();
 
 	const currentPhoto = images.find(
 		(img) => img.id === Number(context.params.photoId),
 	);
-
-	if (!currentPhoto) {
-		return {
-			notFound: true,
-		};
-	}
 
 	return {
 		props: {
@@ -47,3 +41,17 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 		},
 	};
 };
+
+export async function getStaticPaths() {
+	const images = await getImages();
+
+	let fullPaths = [];
+	for (let i = 0; i < images.length; i++) {
+		fullPaths.push({ params: { photoId: images[i].id.toString() } });
+	}
+
+	return {
+		paths: fullPaths,
+		fallback: false,
+	};
+}

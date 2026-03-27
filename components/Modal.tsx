@@ -29,12 +29,6 @@ export default function Modal({
 		}
 	}, [index, curIndex]);
 
-	useEffect(() => {
-		if (photoId && index === -1) {
-			handleClose();
-		}
-	}, [index, photoId]);
-
 	function handleClose() {
 		router.push("/", undefined, { shallow: true });
 		onClose();
