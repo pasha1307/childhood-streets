@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -39,6 +39,22 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
 			}
 		}
 	}, [photoId]);
+
+	useEffect(() => {
+		if (!photoId) {
+			return;
+		}
+
+		const activePhotoId = Number(photoId);
+		const activePhotoExists = images.some(
+			(image) => image.id === activePhotoId,
+		);
+		const activePhotoHidden = hiddenImageIds.includes(activePhotoId);
+
+		if (!activePhotoExists || activePhotoHidden) {
+			router.push("/", undefined, { shallow: true });
+		}
+	}, [hiddenImageIds, images, photoId, router]);
 
 	const displayedImages = images.filter(
 		(img) =>
@@ -161,12 +177,12 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
 
 export default Home;
 
-export async function getStaticProps() {
+export const getServerSideProps: GetServerSideProps = async () => {
 	const images = await getImages();
+
 	return {
 		props: {
 			images,
 		},
-		revalidate: 60,
 	};
-}
+};

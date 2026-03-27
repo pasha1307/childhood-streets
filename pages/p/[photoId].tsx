@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Carousel from "../../components/Carousel";
@@ -28,7 +28,7 @@ const Home: NextPage = ({ currentPhoto }: { currentPhoto: ImageProps }) => {
 
 export default Home;
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
 	const images = await getImages();
 
 	const currentPhoto = images.find(
@@ -38,7 +38,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 	if (!currentPhoto) {
 		return {
 			notFound: true,
-			revalidate: 60,
 		};
 	}
 
@@ -46,20 +45,5 @@ export const getStaticProps: GetStaticProps = async (context) => {
 		props: {
 			currentPhoto: currentPhoto,
 		},
-		revalidate: 60,
 	};
 };
-
-export async function getStaticPaths() {
-	const images = await getImages();
-
-	let fullPaths = [];
-	for (let i = 0; i < images.length; i++) {
-		fullPaths.push({ params: { photoId: images[i].id.toString() } });
-	}
-
-	return {
-		paths: fullPaths,
-		fallback: "blocking",
-	};
-}

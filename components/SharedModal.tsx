@@ -61,7 +61,12 @@ export default function SharedModal({
 	}, [index, currentImage?.id]);
 
 	useEffect(() => {
-		if (!images || !currentImage || !failedImageIds.includes(currentImage.id)) {
+		if (!currentImage || !failedImageIds.includes(currentImage.id)) {
+			return;
+		}
+
+		if (!images) {
+			closeModal();
 			return;
 		}
 
@@ -77,7 +82,6 @@ export default function SharedModal({
 		closeModal,
 		currentImage,
 		failedImageIds,
-		images,
 		visibleImages,
 	]);
 
