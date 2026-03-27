@@ -17,8 +17,15 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
 	const [currentTab, setCurrentTab] = useState<"childhood" | "old_photos">(
 		"childhood",
 	);
+	const [failedImageIds, setFailedImageIds] = useState<number[]>([]);
 
 	const lastViewedPhotoRef = useRef<HTMLAnchorElement>(null);
+
+	function handleImageError(imageId: number) {
+		setFailedImageIds((currentIds) =>
+			currentIds.includes(imageId) ? currentIds : [...currentIds, imageId],
+		);
+	}
 
 	useEffect(() => {
 		// This effect keeps track of the last viewed photo in the modal to keep the index page in sync with back button
@@ -39,8 +46,21 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
 		}
 	}, [photoId]);
 
-	const displayedImages = images.filter((img) =>
+	useEffect(() => {
+		if (!photoId) {
+			return;
+		}
+
+		if (failedImageIds.includes(Number(photoId))) {
+			router.push("/", undefined, { shallow: true });
+		}
+	}, [failedImageIds, photoId, router]);
+
+	const tabImages = images.filter((img) =>
 		currentTab === "childhood" ? img.id < 1000 : img.id >= 1000,
+	);
+	const displayedImages = tabImages.filter(
+		(img) => !failedImageIds.includes(img.id),
 	);
 
 	return (
@@ -59,6 +79,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
 				{photoId && (
 					<Modal
 						images={displayedImages}
+						onImageError={handleImageError}
 						onClose={() => {
 							setLastViewedPhoto(photoId);
 						}}
@@ -132,6 +153,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
 									src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_720/v${version}/${public_id}.${format}`}
 									width={720}
 									height={480}
+									onError={() => handleImageError(id)}
 									sizes="(max-width: 640px) 100vw,
                   (max-width: 1280px) 50vw,
                   (max-width: 1536px) 33vw,
@@ -157,5 +179,6 @@ export async function getStaticProps() {
 		props: {
 			images,
 		},
+		revalidate: 60,
 	};
 }

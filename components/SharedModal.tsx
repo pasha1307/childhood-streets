@@ -12,7 +12,6 @@ import { useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import { variants } from "../utils/animationVariants";
 import downloadPhoto from "../utils/downloadPhoto";
-import { range } from "../utils/range";
 import type { ImageProps, SharedModalProps } from "../utils/types";
 import Twitter from "./Icons/Twitter";
 
@@ -21,6 +20,7 @@ export default function SharedModal({
 	images,
 	changePhotoId,
 	closeModal,
+	onImageError,
 	navigation,
 	currentPhoto,
 	direction,
@@ -44,6 +44,18 @@ export default function SharedModal({
 	});
 
 	let currentImage = images ? images[index] : currentPhoto;
+
+	function handleImageError(imageId: number) {
+		onImageError?.(imageId);
+
+		if (!images || currentImage?.id === imageId) {
+			closeModal();
+		}
+	}
+
+	if (!currentImage) {
+		return null;
+	}
 
 	return (
 		<MotionConfig
@@ -80,6 +92,7 @@ export default function SharedModal({
 									priority
 									alt="Cloudinary image"
 									onLoadingComplete={() => setLoaded(true)}
+									onError={() => handleImageError(currentImage.id)}
 								/>
 							</motion.div>
 						</AnimatePresence>
@@ -204,6 +217,7 @@ export default function SharedModal({
 														: "brightness-50 contrast-125 hover:brightness-75"
 												} h-full transform object-cover transition`}
 												src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_180/${public_id}.${format}`}
+												onError={() => onImageError?.(id)}
 											/>
 										</motion.button>
 									))}

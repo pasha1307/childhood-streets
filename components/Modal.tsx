@@ -8,9 +8,11 @@ import SharedModal from "./SharedModal";
 
 export default function Modal({
 	images,
+	onImageError,
 	onClose,
 }: {
 	images: ImageProps[];
+	onImageError?: (imageId: number) => void;
 	onClose?: () => void;
 }) {
 	let overlayRef = useRef();
@@ -28,6 +30,12 @@ export default function Modal({
 			setCurIndex(index);
 		}
 	}, [index, curIndex]);
+
+	useEffect(() => {
+		if (photoId && index === -1) {
+			handleClose();
+		}
+	}, [index, photoId]);
 
 	function handleClose() {
 		router.push("/", undefined, { shallow: true });
@@ -63,6 +71,10 @@ export default function Modal({
 		}
 	});
 
+	if (index === -1) {
+		return null;
+	}
+
 	return (
 		<Dialog
 			static
@@ -85,6 +97,7 @@ export default function Modal({
 				images={images}
 				changePhotoId={changePhotoId}
 				closeModal={handleClose}
+				onImageError={onImageError}
 				navigation={true}
 			/>
 		</Dialog>

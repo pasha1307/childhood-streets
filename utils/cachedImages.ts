@@ -3,9 +3,12 @@ import getBase64ImageUrl from "./generateBlurPlaceholder";
 import type { ImageProps } from "./types";
 
 let cachedImages: ImageProps[] | null = null;
+let cacheExpiresAt = 0;
+
+const CACHE_TTL_MS = 60 * 1000;
 
 export default async function getImages(): Promise<ImageProps[]> {
-	if (cachedImages) return cachedImages;
+	if (cachedImages && Date.now() < cacheExpiresAt) return cachedImages;
 
 	const fetchFolder = async (folder: string, idOffset: number) => {
 		try {
@@ -52,6 +55,7 @@ export default async function getImages(): Promise<ImageProps[]> {
 	}
 
 	cachedImages = allImages;
+	cacheExpiresAt = Date.now() + CACHE_TTL_MS;
 
 	return cachedImages;
 }

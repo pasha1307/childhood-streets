@@ -35,10 +35,18 @@ export const getStaticProps: GetStaticProps = async (context) => {
 		(img) => img.id === Number(context.params.photoId),
 	);
 
+	if (!currentPhoto) {
+		return {
+			notFound: true,
+			revalidate: 60,
+		};
+	}
+
 	return {
 		props: {
 			currentPhoto: currentPhoto,
 		},
+		revalidate: 60,
 	};
 };
 
@@ -52,6 +60,6 @@ export async function getStaticPaths() {
 
 	return {
 		paths: fullPaths,
-		fallback: false,
+		fallback: "blocking",
 	};
 }
