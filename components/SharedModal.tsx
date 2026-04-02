@@ -183,7 +183,7 @@ export default function SharedModal({
 								className="mx-auto mb-6 mt-6 flex aspect-[3/2] h-14"
 							>
 								<AnimatePresence initial={false}>
-									{filteredImages.map(({ public_id, format, id }) => (
+									{filteredImages.map(({ public_id, format, id, version }) => (
 										<motion.button
 											initial={{
 												width: "0%",
@@ -216,7 +216,7 @@ export default function SharedModal({
 														? "brightness-110 hover:brightness-110"
 														: "brightness-50 contrast-125 hover:brightness-75"
 												} h-full transform object-cover transition`}
-												src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_180/${public_id}.${format}`}
+												src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_180/v${version}/${public_id}.${format}`}
 												onError={() => onImageError?.(id)}
 											/>
 										</motion.button>
