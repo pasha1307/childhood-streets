@@ -17,11 +17,11 @@ class MyDocument extends Document {
 					/>
 					<meta
 						property="og:description"
-						content="Updated photos from the classmates of 1976 graduation."
+						content="Uploaded photos from the classmates of 1976 graduation."
 					/>
 					<meta
 						property="og:title"
-						content="Fifty Years After - Syktyvkar High School No12 Graduates "
+						content="Fifty Years After - Syktyvkar High School No.12 Graduates "
 					/>
 					<meta name="twitter:card" content="summary_site_image" />
 					<meta
