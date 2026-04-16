@@ -96,7 +96,10 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
 						</div>
 						<div className="relative z-10 flex h-full w-full flex-col items-center justify-end pb-4">
 							<h1 className="mb-4 mt-8 text-base font-bold uppercase tracking-widest">
-								Now and Then: Views and Memories ...
+								<span>Now and Then: Views and Memories...</span>
+								<small style={{ color: "rgba(255, 255, 255, 0.55)" }}>
+									(click buttons below)
+								</small>
 							</h1>
 							<p className="max-w-[40ch] text-white/75 sm:max-w-[32ch]">
 								{/* <span className="text-white/75">Bur Ryt, Dona Yortyas!</span>,
