@@ -66,10 +66,12 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
 	return (
 		<>
 			<Head>
-				<title>Now and Then: Views of Sysktyvkar and the High School </title>
+				<title>
+					Now and Then: Views of Sysktyvkar and the High School Fifty Years.
+				</title>
 				<meta
 					property="og:image"
-					content="Syktyvkar and School Photos Current and Past"
+					content="Syktyvkar and School Photos Current and w2Past"
 				/>
 				<meta name="twitter:image" content="Former Classmates" />
 			</Head>
