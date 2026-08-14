@@ -66,9 +66,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
 	return (
 		<>
 			<Head>
-				<title>
-					Now and Then: Views of Sysktyvkar and the High School Fifty Years.
-				</title>
+				<title>Now and Then: Views of Sysktyvkar and the High School.</title>
 				<meta
 					property="og:image"
 					content="Syktyvkar and School Photos Current and w2Past"
