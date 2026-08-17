@@ -13,7 +13,7 @@ class MyDocument extends Document {
 
 					<meta
 						property="og:site_name"
-						content="Fifty Years After Graduation From The High School No. 12 In Syktyvkar"
+						content="Fifty Years After Graduation From The High School No. 12 In Syktyvkar KOMI"
 					/>
 					<meta
 						property="og:description"
