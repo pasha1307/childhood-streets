@@ -8,7 +8,7 @@ class MyDocument extends Document {
 					<link rel="icon" href="/favicon.ico" />
 					<meta
 						name="description"
-						content="See photos of NOW and THEN sites of the home town Syktyvkar"
+						content="See photos of NOW and THEN sites in the home town of Syktyvkar"
 					/>
 
 					<meta
