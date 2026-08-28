@@ -8,7 +8,7 @@ class MyDocument extends Document {
 					<link rel="icon" href="/favicon.ico" />
 					<meta
 						name="description"
-						content="See photos of NOW and THEN sites in the home town of Syktyvkar"
+						content="See photos of NOW and THEN sites in the home town of Syktyvkar."
 					/>
 
 					<meta
@@ -17,7 +17,7 @@ class MyDocument extends Document {
 					/>
 					<meta
 						property="og:description"
-						content="Uploaded photos from the classmates of 1976 graduation."
+						content="Uploaded photos from the classmates of 1976 graduation in Komi."
 					/>
 					<meta
 						property="og:title"
