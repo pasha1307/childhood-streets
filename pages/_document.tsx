@@ -13,7 +13,7 @@ class MyDocument extends Document {
 
 					<meta
 						property="og:site_name"
-						content="Fifty Years After Graduation From The High School 12 In Syktyvkar KOMI"
+						content="Fifty Years After Graduation From The High School No. 12 In Syktyvkar KOMI"
 					/>
 					<meta
 						property="og:description"
@@ -21,7 +21,7 @@ class MyDocument extends Document {
 					/>
 					<meta
 						property="og:title"
-						content="Fifty Years After - Syktyvkar High School-12 Graduates."
+						content="Fifty Years After - Syktyvkar High School 12. Graduates."
 					/>
 					<meta name="twitter:card" content="summary_site_image" />
 					<meta
